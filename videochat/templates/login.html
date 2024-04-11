@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<style>
+   .login-container{
+    background-color:#1f558c;
+
+   } 
+   a{
+    text-decoration: none; 
+    color: white;   
+    }
+</style>
+<div class="login-container">
+    <h2>Login</h2>
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="{% url 'home' %}">Register</a></p>
+</div>
+{% endblock content %}
